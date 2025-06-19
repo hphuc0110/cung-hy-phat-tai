@@ -6,6 +6,7 @@ import { menuItems } from "@/data/menu"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { Input } from "@/components/ui/input" // Import Input component
 import { cn } from "@/lib/utils" // Import cn utility
 
 export function MenuList() {
@@ -13,9 +14,9 @@ export function MenuList() {
     return Array.from(new Set(menuItems.map((item) => item.mainCategory)))
   }, [])
 
-  // Thay đổi giá trị khởi tạo của selectedMainCategory thành mainCategories[0] hoặc null nếu không có danh mục nào
   const [selectedMainCategory, setSelectedMainCategory] = useState<string | null>(mainCategories[0] || null)
   const [selectedSubCategory, setSelectedSubCategory] = useState<string | null>(null)
+  const [searchTerm, setSearchTerm] = useState<string>("") // State for search term
 
   // Reset sub-category when main category changes
   useState(() => {
@@ -30,8 +31,19 @@ export function MenuList() {
     if (selectedSubCategory) {
       items = items.filter((item) => item.subCategory === selectedSubCategory)
     }
+
+    // Filter by search term
+    if (searchTerm) {
+      const lowerCaseSearchTerm = searchTerm.toLowerCase()
+      items = items.filter(
+        (item) =>
+          item.name.toLowerCase().includes(lowerCaseSearchTerm) ||
+          item.description.toLowerCase().includes(lowerCaseSearchTerm),
+      )
+    }
+
     return items
-  }, [selectedMainCategory, selectedSubCategory])
+  }, [selectedMainCategory, selectedSubCategory, searchTerm]) // Add searchTerm to dependencies
 
   const subCategories = useMemo(() => {
     if (!selectedMainCategory) return []
@@ -49,27 +61,28 @@ export function MenuList() {
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-playfair-display font-bold text-center mb-8 text-white">Thực Đơn</h2>
 
+        {/* Search Bar */}
+        <div className="mb-6">
+          <Input
+            type="text"
+            placeholder="Tìm kiếm món ăn..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full max-w-md mx-auto block bg-white text-black border-gray-300 focus:border-dark-red focus:ring-dark-red"
+          />
+        </div>
+
         {/* Main Category Tabs */}
         <div className="mb-6">
-          {/* Trong Tabs component, thay đổi giá trị `value` và `onValueChange` */}
           <Tabs
-            value={selectedMainCategory || ""} // Thay đổi "all" thành "" hoặc danh mục mặc định
-            onValueChange={(value) => setSelectedMainCategory(value === "" ? null : value)}
+            value={selectedMainCategory || ""}
+            onValueChange={(value) => {
+              setSelectedMainCategory(value === "" ? null : value)
+              setSearchTerm("") // Clear search term when changing category
+            }}
           >
             <ScrollArea className="max-w-full pb-2">
               <TabsList className="flex justify-center flex-wrap h-auto bg-white">
-                {/* Xóa bỏ TabsTrigger "Tất Cả" */}
-                {/*
-                <TabsTrigger
-                  value="all"
-                  className={cn(
-                    "data-[state=active]:bg-dark-red data-[state=active]:text-yellow-400",
-                    "text-dark-red hover:bg-red-50 hover:text-dark-red",
-                  )}
-                >
-                  Tất Cả
-                </TabsTrigger>
-                */}
                 <TabsTrigger
                   value="Món Nóng"
                   className={cn(

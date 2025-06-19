@@ -87,7 +87,7 @@ export const menuItems: FoodItem[] = [
   {
     ... generateHotDishItem("Gà phú quý", "Món hầm", 130000),
     image: "/images/Gà Phú Quý.webp",
-    description: "- mùi thơm của đương quy, đẳng sâm đặc trưng, vị đậm đà, sốt sánh quyện"
+    description: "Mùi thơm của đương quy, đẳng sâm đặc trưng, vị đậm đà, sốt sánh quyện"
     },
   {
   ... generateHotDishItem("Vịt bát bảo", "Món hầm", 110000),
@@ -106,7 +106,7 @@ export const menuItems: FoodItem[] = [
   {
     ... generateHotDishItem("Gân bò nạm bò thuốc bắc", "Món hầm", 90000),
     image: "/images/gân nạm bò thuốc bắc1.webp",  
-    description: "- thơm nhẹ mùi thuốc bắc, gân, nạm bò mềm"
+    description: "Thơm nhẹ mùi thuốc bắc, gân, nạm bò mềm"
     },
   {
   ... generateHotDishItem("Vịt phú quý", "Món hầm", 100000),
@@ -126,7 +126,7 @@ export const menuItems: FoodItem[] = [
   {
   ...generateHotDishItem("Dê om mã thầy nấm hương", "Món hầm", 160000), 
   image: "images/dê om mã thầy nấm hương.webp",
-  description: "- thịt dê mềm, béo, thơm mùi trụ hầu, chao trắng, nước sốt sánh"
+  description: "Thịt dê mềm, béo, thơm mùi trụ hầu, chao trắng, nước sốt sánh"
   },
   {
   ...generateHotDishItem("Đuôi bò hầm thuốc bắc", "Món hầm", 150000),
@@ -163,7 +163,7 @@ export const menuItems: FoodItem[] = [
   {
     ...generateHotDishItem("Bò xào săn cay kiểu Tứ Xuyên", "Món xào", 90000),
     image: "/images/bò xào săn cay kiểu tứ xuyên.webp",
-    description: "- vị cay tê nhẹ, thịt bò mềm, hơi nhiều dầu"
+    description: "Vị cay tê nhẹ, thịt bò mềm, hơi nhiều dầu"
   },
   {
     ...generateHotDishItem("Bò xào X.O", "Món xào", 100000),
@@ -198,12 +198,12 @@ export const menuItems: FoodItem[] = [
   {
     ...generateHotDishItem("Gà xào tứ xuyên", "Món xào", 87000),
     image: "images/gà xào kiểu tứ xuyên.webp",
-    description: "- thơm mùi quế hồi, hơi cay, thơm mùi muối ớt"
+    description: "Thơm mùi quế hồi, hơi cay, thơm mùi muối ớt"
 },
   {
     ...generateHotDishItem("Sụn gà xào tứ xuyên", "Món xào", 90000),
     image: "images/sụn gà xào kiểu tứ xuyên.webp",
-    description: "- thơm mùi quế hồi, thơm mùi muối ớt"
+    description: "Thơm mùi quế hồi, thơm mùi muối ớt"
 },
   {
     ...generateHotDishItem("Tôm xào Singapore", "Món xào", 110000),
@@ -223,7 +223,7 @@ export const menuItems: FoodItem[] = [
   {
     ...generateHotDishItem("Mực xào X.O", "Món xào", 105000),
     image: "images/mực xào sốt XO.webp",
-    description: "- vị cay nhẹ,thơm mùi sốt, nhiều dầu "
+    description: "Vị cay nhẹ,thơm mùi sốt, nhiều dầu "
 },  
   {
     ...generateHotDishItem("Mực xào sốt cay", "Món xào", 102000),
@@ -231,7 +231,7 @@ export const menuItems: FoodItem[] = [
     description: "Vị cay nhẹ, đậm đà"
 },
   {
-    ...generateHotDishItem("Cua gạch /cua thịt om gừng hành", "Món xào", 180000),
+    ...generateHotDishItem("Cua gạch / Cua thịt om gừng hành", "Món xào", 180000),
     image: "/images/cua om gừng hành.webp",
     description: "thơm gừng hành, vị mặn mặn, ngọt ngọt"
   },
@@ -280,7 +280,7 @@ export const menuItems: FoodItem[] = [
   {
     ...generateHotDishItem("Tôm sốt tiêu đen", "Món chiên", 100000),
     image: "/images/tôm sốt tiêu đen.webp",
-    description: "- thơm sốt tiêu đen, béo của phô mai"
+    description: "thơm sốt tiêu đen, béo của phô mai"
 },
   {
     ...generateHotDishItem("Tôm xào sốt XO ", "Món chiên", 105000),
@@ -500,7 +500,7 @@ export const menuItems: FoodItem[] = [
   {
     ...generateHotDishItem("Canh gà hải sâm", "Món tần", 170000),
     image: "/images/canh gà hải sâm.webp",
-    description: "- vị béo, ngậy không ngán, thêm hải sâm mềm"
+    description: "Vị béo, ngậy không ngán, thêm hải sâm mềm"
   },
   {
     ...generateHotDishItem("Thịt vây cá tần bắp lợn", "Món tần", 150000),
@@ -1125,20 +1125,11 @@ export const menuItems: FoodItem[] = [
     subCategory: "Bánh bao",
   },
   {
-    id: "banh-bao-xa-xiu-pho-mai",
-    name: "Bánh bao xá xíu phô mai",
-    description: "Bột mì thượng hạng, xá xíu nướng phô mai.",
-    price: 30000,
-    image: "/images/bánh bao xíu mại pho mai.webp",
-    mainCategory: "Dimsum",
-    subCategory: "Bánh bao",
-  },
-  {
     id: "banh-bao-xiu-mai",
     name: "Bánh bao xíu mại phô mai",
     description: "Bánh bao nhân thịt xá xíu thơm ngon.",
     price: 32000,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/images/bánh bao xíu mại pho mai.webp",
     mainCategory: "Dimsum",
     subCategory: "Bánh bao",
   },

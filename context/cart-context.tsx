@@ -3,23 +3,30 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 import { toast } from "@/hooks/use-toast"
 
+export interface FoodItemOption {
+  name: string // e.g., "Lồng 3", "Lồng 6"
+  price: number
+}
+
 export interface FoodItem {
   id: string
   name: string
   description: string
-  price: number
   image: string
-  mainCategory: string // Thêm trường này
-  subCategory: string // Thêm trường này
+  mainCategory: string
+  subCategory: string
+  price?: number // Optional if options are present
+  options?: FoodItemOption[] // New field for multiple price options
 }
 
 export interface CartItem extends FoodItem {
   quantity: number
+  selectedOption?: FoodItemOption // Store the selected option
 }
 
 interface CartContextType {
   cartItems: CartItem[]
-  addToCart: (item: FoodItem) => void
+  addToCart: (item: FoodItem, selectedOption?: FoodItemOption) => void // Modified to accept selectedOption
   removeFromCart: (itemId: string) => void
   updateQuantity: (itemId: string, quantity: number) => void
   clearCart: () => void
@@ -41,13 +48,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
       setCartItems(JSON.parse(storedCart))
     }
 
-    // Lấy số bàn từ localStorage nếu có
     const storedTableNumber = localStorage.getItem("food-ordering-table")
     if (storedTableNumber) {
       setTableNumber(storedTableNumber)
     }
 
-    // Kiểm tra tham số URL cho số bàn
     if (typeof window !== "undefined") {
       const urlParams = new URLSearchParams(window.location.search)
       const tableParam = urlParams.get("table")
@@ -68,23 +73,31 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   }, [tableNumber])
 
-  const addToCart = (item: FoodItem) => {
+  const addToCart = (item: FoodItem, selectedOption?: FoodItemOption) => {
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.id === item.id)
+      // Create a unique ID for cart item if it has options
+      const cartItemId = selectedOption
+        ? `${item.id}-${selectedOption.name.replace(/\s/g, "-").toLowerCase()}`
+        : item.id
+
+      const existingItem = prevItems.find((i) => i.id === cartItemId)
+
       if (existingItem) {
         toast({
           title: "Đã cập nhật giỏ hàng",
-          description: `${item.name} số lượng đã tăng lên ${existingItem.quantity + 1}.`,
+          description: `${item.name} ${selectedOption ? `(${selectedOption.name})` : ""} số lượng đã tăng lên ${existingItem.quantity + 1}.`,
           duration: 1000,
         })
-        return prevItems.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i))
+        return prevItems.map((i) => (i.id === cartItemId ? { ...i, quantity: i.quantity + 1 } : i))
       } else {
         toast({
           title: "Đã thêm vào giỏ hàng",
-          description: `${item.name} đã được thêm vào giỏ hàng.`,
+          description: `${item.name} ${selectedOption ? `(${selectedOption.name})` : ""} đã được thêm vào giỏ hàng.`,
           duration: 1000,
         })
-        return [...prevItems, { ...item, quantity: 1 }]
+        // Use the price from selectedOption if available, otherwise use item.price
+        const priceToUse = selectedOption ? selectedOption.price : item.price
+        return [...prevItems, { ...item, id: cartItemId, price: priceToUse!, quantity: 1, selectedOption }]
       }
     })
   }
@@ -95,7 +108,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (itemToRemove) {
         toast({
           title: "Đã xóa khỏi giỏ hàng",
-          description: `${itemToRemove.name} đã được xóa khỏi giỏ hàng.`,
+          description: `${itemToRemove.name} ${itemToRemove.selectedOption ? `(${itemToRemove.selectedOption.name})` : ""} đã được xóa khỏi giỏ hàng.`,
         })
       }
       return prevItems.filter((item) => item.id !== itemId)
@@ -119,7 +132,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
     })
   }
 
-  const cartTotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0)
+  const cartTotal = cartItems.reduce((total, item) => {
+    // Use selectedOption price if available, otherwise fallback to item.price
+    const itemPrice = item.selectedOption ? item.selectedOption.price : item.price
+    return total + (itemPrice || 0) * item.quantity
+  }, 0)
 
   const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0)
 

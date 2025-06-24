@@ -144,10 +144,13 @@ export function CartSidebar() {
                     className="rounded-md object-cover flex-shrink-0"
                   />
                   <div className="flex-1 flex flex-col items-start">
-                    <h3 className="font-medium">{item.name}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {(item.price * item.quantity).toLocaleString("vi-VN")} VNĐ
-                    </p>
+                    <h3 className="font-medium">
+                      {item.name}
+                      {item.selectedOption && (
+                        <span className="text-sm text-muted-foreground ml-1">({item.selectedOption.name})</span>
+                      )}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{(item.price || 0).toLocaleString("vi-VN")} VNĐ</p>
                   </div>
                   <div className="flex items-center gap-2 ml-auto">
                     <Button

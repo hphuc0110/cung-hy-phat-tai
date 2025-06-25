@@ -19,17 +19,17 @@ export const menuItems: FoodItem[] = [
   // MÓN KHAI VỊ
   {
     ...generateHotDishItem("Súp ngô gà", "Món khai vị", 86000),
-    image: "/images/sup-cua-ga.webp",
+    image: "/images/súp ngô gà.webp",
     description: "Vị ngọt của ngô kem, thơm béo",
   },
   {
     ...generateHotDishItem("Súp ngô cua", "Món khai vị", 106000),
-    image: "/images/sup-ngo-cua.webp",
+    image: "/images/súp ngô cua.webp",
     description: "Vị ngọt của thịt cua và ngô kem, vị béo ngậy",
   },
   {
     ...generateHotDishItem("Súp bí đỏ hải sản", "Món khai vị", 138000),
-    image: "/images/sup-bi-do.webp",
+    image: "/images/súp bí đỏ hải sản.webp",
     description: " Vị béo của bí đỏ và kem, vị hơi ngọt cua hành và bí",
   },
   {
@@ -39,7 +39,7 @@ export const menuItems: FoodItem[] = [
 },
   {
     ...generateHotDishItem("Vây cá trộn thịt cua", "Món khai vị", 1268000),
-    image: "/images/vay-ca-thit-cua.webp",
+    image: "/images/vây cá trộn thịt cua.webp",
     description: "Vị thơm của nước thượng canh, vị của vi cá mập, hơi giòn",
   },
   {
@@ -66,11 +66,6 @@ export const menuItems: FoodItem[] = [
     ...generateHotDishItem("Súp bóng cá thịt cua", "Món khai vị", 168000),
     image: "/images/bóng cá thịt cua.webp",
     description: "Vị đặc trưng của hải sản"
-  },
-  {
-    ...generateHotDishItem("Thượng canh tổ yến thịt cua - gà", "Món khai vị", 150000),
-    image: "/images/to-yen-thit-cua.webp",
-    description: "Món cao cấp từ nguyên liệu quý hiếm",
   },
 
   // MÓN HẦM
@@ -139,18 +134,13 @@ export const menuItems: FoodItem[] = [
   description: " đuôi bò mềm, vị ngọt thơm, vị chua của cà chua nổi bật"
   },
   {
-    ...generateHotDishItem("Thịt khâu nhục", "Món hầm", 85000),
-    image: "/images/khau-nhuc.webp",
-    description: "Béo nhưng không ngấy, mềm nhưng không nát",
-  },
-  {
     ...generateHotDishItem("Thịt khâu nhục rau mai chiêu bài", "Món hầm", 488000),
     image: "/images/khâu nhục rau mai.webp",
     description: "Thịt lợn mềm, béo ko ngán,thơm đặc trưng của sốt trụ hầu, chao đỏ, bơ lạt",
   },
   {
     ...generateHotDishItem("Thịt kho Đông Pha", "Món hầm", 388000),
-    image: "/images/thit-kho-dong-pha.webp",
+    image: "/images/thịt kho đông pha.webp",
     description: "Ngọt, mặn hài hòa, đưa cơm đậm vị.",
   },
 
@@ -411,7 +401,7 @@ export const menuItems: FoodItem[] = [
     description: "Cua chắc thịt, vị đậm đà"
   },
   {
-    ...generateHotDishItem("Cua gạch/ cua thịt om miến sate sốt XO ", "Món chiên", 210000),
+    ...generateHotDishItem("Cua gạch/ cua thịt om miến sate sốt sate ", "Món chiên", 1300000),
     image: "/images/cua om miến sốt sate.webp",
     description:"Cua chắc thịt, sốt cay vừa đủ"
   },
@@ -582,11 +572,6 @@ export const menuItems: FoodItem[] = [
     description: "cơm rang mềm, ko phải cơm rang săn, màu vàng từ lòng đỏ trứng"
   },
   {
-    ...generateHotDishItem("Cơm rang lòng trứng trứng", "Món no", 65000),
-    image: "/images/Cơm rang sốt thịt cua.webp",
-    description: "cơm rang săn, sốt thịt cua béo"
-  },
-  {
     ...generateHotDishItem("Cơm rang Dương Châu", "Món no", 228000),
     image: "/images/Cơm rang dương châu.webp",
     description: "Xá xíu mềm từ nạc vai, giòn, ko khô"
@@ -623,7 +608,7 @@ export const menuItems: FoodItem[] = [
     image: "/images/ngó xuân xào tỏi.webp",
   },
   {
-    ...generateHotDishItem("Rau luộc theo mùa", "Món rau", 108000),
+    ...generateHotDishItem("Rau theo mùa luộc ", "Món rau", 108000),
     image: "/images/cải chip luộc.webp",
   },
   {
@@ -648,16 +633,6 @@ export const menuItems: FoodItem[] = [
     ... generateHotDishItem("Tôm viên chiên giòn", "Món bổ sung", 268000),
   image: "/images/Tôm viên chiên giòn.webp",
   description: "thịt tôm giòn ngọt, không bị khô, thơm"
-},
-  {
-    ... generateHotDishItem("Tôm viên Hồng Kông", "Món bổ sung", 98000),
-  image: "/images/Tôm viên hồng kong.webp",
-  description: "Nhân tôm, mực lá, hạnh nhân lát, sốt chua ngọt"
-},
-  {
-    ... generateHotDishItem("Tôm viên sốt Tứ Xuyên", "Món bổ sung", 98000),
-  image: "/images/Tôm viên sốt tứ xuyên.webp",
-  description: "Nhân tôm thuỷ tinh, sốt tứ xuyên"
 },
   {
     ... generateHotDishItem("Quẩy mực bách hoa", "Món bổ sung", 288000),
@@ -873,11 +848,6 @@ description: "Cay tê,hơi mặn, ngọt ngọt"
     ...generateHotDishItem("Súp cảo vi cá ", "Món hấp", 328000),
     image: "/images/Cảo vi cá nước dùng.webp",
     description: "Nhân tôm thuỷ tinh, vi cá, nước dùng vi cá"
-  },
-  {
-    ...generateHotDishItem("Cảo cá tuyết nấm hương", "Món hấp", 68000),
-    image: "/images/Cảo cá tuyết nấm hương.webp",
-    description: "Thịt cá tuyết, gia vị , nấm hương, trứng cá tầm"
   },
 
   // DIMSUM - Món mới

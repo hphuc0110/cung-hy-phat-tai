@@ -532,11 +532,6 @@ export const menuItems: FoodItem[] = [
   description: "Gia vị đặc trưng làm nổi bật hải sản"
 },
   {
-    ...generateHotDishItem("Miến xào tôm nồi đất", "Món no", 78000),
-    image: "/images/miến xào tôm nồi đất.webp",
-    description: "Om trong nước gia vị,thơm đặc trưng của sốt sate"
-},
-  {
     ...generateHotDishItem("Mỳ xào thịt lợn sợi", "Món no", 228000),
     image: "/images/Mỳ xào thịt lợn sợi.webp",
     description: "thơm mùi chảo, sợi mì bùi, thơm, thịt lợn giòn, mềm, ngọt"

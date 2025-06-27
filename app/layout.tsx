@@ -12,8 +12,8 @@ const playfairDisplay = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Bếp Mẹ Cá",
-  description: "Ứng dụng đặt món ăn trực tiếp tại nhà hàng Bếp Mẹ Cá",
+  title: "Cung hỷ phát tài",
+  description: "Ứng dụng đặt món ăn trực tiếp tại nhà hàng Cung hỷ phát tài",
     generator: 'v0.dev'
 }
 

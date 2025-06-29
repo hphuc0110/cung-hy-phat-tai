@@ -95,10 +95,6 @@ export const menuItems: FoodItem[] = [
   description: "Thịt vịt mềm,xôi thơm,thơm mùi trứng muối"
   },
   {
-  ... generateHotDishItem("Gân bò nạm bò củ cải", "Món hầm", 90000),
-  image: "/images/gân nạm bò thuốc bắc1.webp",
-  },
-  {
     ... generateHotDishItem("Gân bò nạm bò thuốc bắc", "Món hầm", 398000),
     image: "/images/gân nạm bò thuốc bắc1.webp",  
     description: "Thơm nhẹ mùi thuốc bắc, gân, nạm bò mềm"
@@ -242,11 +238,6 @@ export const menuItems: FoodItem[] = [
   },
   {
     ...generateHotDishItem("Cá song hấp tỏi hoàng kim", "Món xào", 2160000),
-    image: "/images/Cá song hấp tỏi hoàng kim.webp",
-    description: "Thịt cá, dai chín tới"
-  },
-  {
-    ...generateHotDishItem("Cá song xào lơ xanh / cần mỹ / ngó xuân…", "Món xào", 2160000),
     image: "/images/Cá song hấp tỏi hoàng kim.webp",
     description: "Thịt cá, dai chín tới"
   },
@@ -519,12 +510,6 @@ export const menuItems: FoodItem[] = [
     ...generateHotDishItem("Miến/mỳ xào cua", "Món no", 228000),
     image: "/images/Miến xào thịt cua.webp",
     description: "Vị xì dầu đặc trưng, mùi thơm của thịt cua áp chảo"
-},
-
-  {
-    ...generateHotDishItem("Mỳ cua sốt Thượng Hải", "Món no", 80000),
-    image: "/images/Mì cua Thượng Hải.webp",
-    description: "thơm mùi gạch cua,mùi gừng, xì dầu, sợi mì dai"
 },
 {
   ...generateHotDishItem("Miến xào hải vị nồi đất", "Món no", 228000),
@@ -847,15 +832,6 @@ description: "Cay tê,hơi mặn, ngọt ngọt"
 
   // DIMSUM - Món mới
   {
-    id: "banh-bao-bo-xot-tieu-den",
-    name: "Bánh bao bò xốt tiêu đen",
-    description: "Bánh bao nhân bò xốt tiêu đen thơm ngon.",
-    price: 45000,
-    image: "/images/bánh bao bò sốt tiêu đen.webp",
-    mainCategory: "Dimsum",
-    subCategory: "Món mới",
-  },
-  {
     id: "tieu-long-bao-bich-ngoc",
     name: "Tiểu long bao bích ngọc",
     description: "Bắp bò tươi, hành gừng, nước súp.",
@@ -907,7 +883,6 @@ description: "Cay tê,hơi mặn, ngọt ngọt"
     id: "xiu-mai-hai-san",
     name: "Xíu mại hải sản",
     description: "Nhân tôm mực, gia vị, trứng cá chuồn",
-    price: 65000,
     image: "/images/xíu mại hải sản.webp",
     mainCategory: "Dimsum",
     subCategory: "Món mới",
@@ -951,7 +926,6 @@ description: "Cay tê,hơi mặn, ngọt ngọt"
     id: "ha-cao-ngo-ngot",
     name: "Há cảo ngô ngọt",
     description: "Nhân tôm thuỷ tinh, ngô ngọt, măng tây, rau mùi.",
-    price: 42000,
     image: "/images/há cảo ngô ngọt.webp",
     mainCategory: "Dimsum",
     subCategory: "Món mới",
@@ -976,7 +950,6 @@ description: "Cay tê,hơi mặn, ngọt ngọt"
     id: "ha-cao-xo",
     name: "Há cảo XO",
     description: "Nhân tôm thuỷ tinh, sốt XO.",
-    price: 42000,
     image: "/images/há cảo XO.webp",
     mainCategory: "Dimsum",
     subCategory: "Món mới",
@@ -989,7 +962,6 @@ description: "Cay tê,hơi mặn, ngọt ngọt"
     id: "ha-cao-tien-vua",
     name: "Há cảo tiên vua",
     description: "nhân tôm sú giòn ngọt, rau tiến vua giòn,vỏ bánh trong, dai, mềm và ướt",
-    price: 60000,
     image: "/images/há cảo tiến vua.webp",
     mainCategory: "Dimsum",
     subCategory: "Món mới",
@@ -1137,7 +1109,7 @@ description: "Cay tê,hơi mặn, ngọt ngọt"
   {
     ...generateHotDishItem("Dương chi cam lộ", "Món tráng miệng", 68000),
     image: "/images/Dương chi cam lộ.webp",
-    description: "món ăn đc kết hợp từ xoài xay, xoài cắt hạt lựu tép bưởi, tạo nên độ tươi mát, dễ ăn, phù hơp với mọi khách hàng"
+    description: "món ăn đc kết hợp từ xoài xay, xoài cắt hạt lựu tép bưởi, tạo nên độ tươi mát."
   },
   // DIMSUM - Bánh bao
   {
@@ -1154,15 +1126,6 @@ description: "Cay tê,hơi mặn, ngọt ngọt"
     name: "Bánh bao xá xíu phô mai",
     description: "Bánh bao nhân thịt xá xíu thơm ngon.",
     price: 88000,
-    image: "/images/bánh bao xíu mại pho mai.webp",
-    mainCategory: "Dimsum",
-    subCategory: "Bánh bao",
-  },
-  {
-    id: "banh-bao-xuc-xich-pho-mai",
-    name: "Bánh bao xúc xích phô mai",
-    description: "Bánh bao nhân xúc xích và phô mai béo ngậy.",
-    price: 35000,
     image: "/images/bánh bao xíu mại pho mai.webp",
     mainCategory: "Dimsum",
     subCategory: "Bánh bao",

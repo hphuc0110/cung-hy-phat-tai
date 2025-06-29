@@ -1,13 +1,15 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { FoodCard } from "@/components/food-card"
 import { menuItems } from "@/data/menu"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import { Input } from "@/components/ui/input" // Import Input component
-import { cn } from "@/lib/utils" // Import cn utility
+import { Input } from "@/components/ui/input"
+import { cn } from "@/lib/utils"
+import { Clock, Calendar } from "lucide-react"
+import { ComingSoonCard } from "@/components/coming-soon-card"
 
 export function MenuList() {
   const mainCategories = useMemo(() => {
@@ -19,7 +21,7 @@ export function MenuList() {
   const [searchTerm, setSearchTerm] = useState<string>("") // State for search term
 
   // Reset sub-category when main category changes
-  useState(() => {
+  useEffect(() => {
     setSelectedSubCategory(null)
   }, [selectedMainCategory])
 
@@ -111,13 +113,13 @@ export function MenuList() {
                   Đồ Uống
                 </TabsTrigger>
                 <TabsTrigger
-                  value="Món đặt trước"
+                  value="Món đặt trước (Coming Soon)"
                   className={cn(
-                    "data-[state=active]:bg-dark-red data-[state=active]:text-yellow-400",
-                    "text-dark-red hover:bg-red-50 hover:text-dark-red",
+                    "data-[state=active]:bg-gradient-to-r data-[state=active]:from-orange-600 data-[state=active]:to-red-600 data-[state=active]:text-white",
+                    "text-orange-600 hover:bg-orange-50 hover:text-orange-700 font-semibold",
                   )}
                 >
-                  Món đặt trước
+                  📅 Món đặt trước (Coming Soon)
                 </TabsTrigger>
               </TabsList>
               <ScrollBar orientation="horizontal" />
@@ -156,10 +158,33 @@ export function MenuList() {
           </div>
         )}
 
+        {/* Coming Soon Notice */}
+        {selectedMainCategory === "Món đặt trước (Coming Soon)" && (
+          <div className="mb-8 mx-auto max-w-2xl">
+            <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-lg p-6 text-center shadow-lg">
+              <div className="flex items-center justify-center mb-3">
+                <Calendar className="w-6 h-6 mr-2" />
+                <h3 className="text-xl font-bold">Món Đặt Trước - Coming Soon</h3>
+                <Clock className="w-6 h-6 ml-2" />
+              </div>
+              <p className="text-orange-100 mb-2">
+                Những món ăn cao cấp này cần được đặt trước để đảm bảo chất lượng và độ tươi ngon tốt nhất
+              </p>
+              <p className="text-sm text-orange-200">
+                📞 Vui lòng liên hệ trực tiếp với nhà hàng để đặt trước những món đặc biệt này!
+              </p>
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredItems.map((item) => (
-            <FoodCard key={item.id} item={item} />
-          ))}
+          {filteredItems.map((item) =>
+            item.mainCategory === "Món đặt trước (Coming Soon)" ? (
+              <ComingSoonCard key={item.id} item={item} />
+            ) : (
+              <FoodCard key={item.id} item={item} />
+            ),
+          )}
         </div>
       </div>
     </section>
